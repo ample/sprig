@@ -1,17 +1,17 @@
 module Sprig
   module Logging
     LOG_LEVELS = {
-      debug: :blue,
-      info:  :green,
-      warn:  :orange,
-      error: :red
+      :debug => :blue,
+      :info =>  :green,
+      :warn =>  :orange,
+      :error => :red
     }
 
     LOG_COLORS = {
-      blue:   34,
-      green:  32,
-      orange: 33,
-      red:    31
+      :blue =>   34,
+      :green =>  32,
+      :orange => 33,
+      :red =>    31
     }
 
     LOG_LEVELS.each do |level, color|

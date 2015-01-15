@@ -1,5 +1,7 @@
+require 'hashery/ordered_hash'
+
 module Sprig
-  class TsortableHash < Hash
+  class TsortableHash < ::Hashery::OrderedHash
     include TSort
 
     alias tsort_each_node each_key

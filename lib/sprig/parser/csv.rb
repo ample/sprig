@@ -12,7 +12,7 @@ module Sprig
 
       def records
         [].tap do |records|
-          CSV.foreach(data_io, headers: :first_row, skip_blanks: true) do |row|
+          CSV.foreach(data_io, :headers => :first_row, :skip_blanks => true) do |row|
             records << row.to_hash
           end
         end

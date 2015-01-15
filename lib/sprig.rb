@@ -1,3 +1,5 @@
+require 'hashery'
+
 module Sprig
   autoload :Configuration,        'sprig/configuration'
   autoload :Planter,              'sprig/planter'

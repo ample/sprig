@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.files = Dir["lib/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["spec/**/*"]
 
+  s.add_dependency "hashery", "~> 2.1.1"
+
   s.add_development_dependency "rails",            "~> 3.1"
   s.add_development_dependency "sqlite3",          "~> 1.3.8"
   s.add_development_dependency "rspec",            "~> 2.14.0"

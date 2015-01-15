@@ -51,7 +51,7 @@ module Sprig
     end
 
     def default_source
-      File.open(SourceDeterminer.new(table_name).file)
+      File.open(SourceDeterminer.new(table_name).path)
     end
 
     def default_parser_class
@@ -66,8 +66,12 @@ module Sprig
         @table_name = table_name
       end
 
+      def path
+        seed_directory.join(filename)
+      end
+
       def file
-        File.new(seed_directory.join(filename))
+        File.new(path)
       end
 
       private
@@ -109,22 +113,22 @@ module Sprig
       attr_reader :file
 
       def extension
-        File.extname(file)
+        File.extname(file.path)
       end
 
       def parser_matchers
         [
           {
-            extension: /\.y(a)?ml/i,
-            parser: Sprig::Parser::Yml
+            :extension => /\.y(a)?ml/i,
+            :parser => Sprig::Parser::Yml
           },
           {
-            extension: /\.json/i,
-            parser: Sprig::Parser::Json
+            :extension => /\.json/i,
+            :parser => Sprig::Parser::Json
           },
           {
-            extension: /\.csv/i,
-            parser: Sprig::Parser::Csv
+            :extension => /\.csv/i,
+            :parser => Sprig::Parser::Csv
           }
         ]
       end
